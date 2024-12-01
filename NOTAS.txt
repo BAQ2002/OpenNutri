@@ -1,0 +1,2 @@
+Se o usuario ja tiver um cardapio elaborado: a opção deve ser (modificarCardapio); se não tiver(criarCardapio)
+Se o usuario ja tiver as informações 

@@ -4,82 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Preferência Alimentar</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <style>
-        /* Estilos básicos para alinhar os campos */
-        .container {
-            width: 90%;
-            max-width: 600px;
-            margin: 0 auto;
-            font-family: Arial, sans-serif;
-        }
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label, input {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .row-direction {
-            font-size: 14px;
-            display: flex;
-            flex-direction: row;
-            background-color: #f9f9f9;
-        }
-
-        /* Esconde os campos inicialmente */
-        .hidden {
-            display: none;
-        }
-        .hidden {
-        display: none;
-        }
-        .alergia-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .alergia-item input {
-           flex: 1;
-            margin-right: 10px;
-        }
-        .alergia-item button {
-            padding: 5px 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .alergia-item button:hover {
-            background-color: #0056b3;
-        }        
-    </style>
 </head>
 <body>
     <!-- Quantidade de Refeições -->
@@ -120,7 +47,17 @@
                 </div>
             </div>
         </fieldset>
-              
+
+        <label for="ObjetivoDaDieta">Qual o seu objetivo atual?:</label>
+        <select id="ObjetivoDaDieta" name="ObjetivoDaDieta" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="PerderPesoAgressivo">Perder Peso Agressivo</option>
+            <option value="PerderPeso">Perder Peso</option>
+            <option value="Manter">Manter</option>
+            <option value="GanharAgressivo">Ganhar Peso</option>
+            <option value="GanharPesoAgressivo">Ganhar Peso Agressivo</option>
+        </select>
+             
         <label for="quantidadeRefeicoes">Quantidade de Refeições por dia:</label>
         <select id="quantidadeRefeicoes" name="quantidadeRefeicoes" required>
             <option value="" disabled selected>Selecione</option>
