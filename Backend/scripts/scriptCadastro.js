@@ -1,5 +1,3 @@
-// script.js
-
 // Aguarda o carregamento do DOM
 document.addEventListener("DOMContentLoaded", () => {
     const atividadeSim = document.getElementById("atividadeSim");
@@ -37,16 +35,18 @@ document.getElementById("formCadastro").addEventListener("submit", function (eve
     // Verifica as atividades selecionadas (se visível)
     let atividadesSelecionadas = [];
     if (atividade === "sim") {
-        atividadesSelecionadas = Array.from(
-            document.querySelectorAll('input[name="atividadeF"]:checked')
-        ).map((el) => el.value);
+        const atividadesCheckboxes = document.querySelectorAll('input[name="atividadeF"]:checked');
+        atividadesSelecionadas = Array.from(atividadesCheckboxes).map((el) => {
+            const frequenciaInput = el.parentElement.querySelector('input[type="number"]');
+            const frequencia = frequenciaInput ? frequenciaInput.value || "0" : "0";
+            return `${el.value} (${frequencia} vezes/semana)`;
+        });
     }
 
     // Verifica se todos os campos obrigatórios estão preenchidos
     if (idade && peso && altura && genero && atividade) {
         // Monta o resultado
         let resultado = `
-            Usuário cadastrado com sucesso! <br>
             <strong>Idade:</strong> ${idade} anos<br>
             <strong>Peso:</strong> ${peso} kg<br>
             <strong>Altura:</strong> ${altura} cm<br>
@@ -58,9 +58,14 @@ document.getElementById("formCadastro").addEventListener("submit", function (eve
             resultado += `<strong>Atividades:</strong> ${atividadesSelecionadas.join(", ")}<br>`;
         }
 
-        // Exibe o resultado
-        document.getElementById("resultado").innerHTML = resultado;
+        // Manda o resultado para a proxima pagina
+        localStorage.setItem("infoFisiologica", resultado);     
+        window.location.href = "geradorDeCardapio.html";   
+
     } else {
         alert("Preencha todos os campos corretamente!");
     }
+
 });
+
+

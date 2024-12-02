@@ -80,3 +80,47 @@ for (let i = 0; i < 10; i++) {
         input.classList.remove("hidden");
     }
 }
+
+document.getElementById('formPreferenciaAlimentos').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Obter informações do localStorage
+    const infoFisiologica = localStorage.getItem('infoFisiologica');
+    
+    // Coletar dados da página atual
+    const preferencias = Array.from(document.querySelectorAll('input[name="alimento"]'))
+        .map(input => input.value)
+        .filter(value => value.trim() !== '');
+    
+    const restricoes = Array.from(document.querySelectorAll('input[name="restricoesAlimentares"]:checked'))
+        .map(input => input.value);
+    
+    const objetivo = document.getElementById('ObjetivoDaDieta').value;
+    const quantidadeRefeicoes = document.getElementById('quantidadeRefeicoes').value;
+    const quantidadeOpcoes = document.getElementById('quantidadeOpcoes').value;
+
+    // Construir os dados para o backend
+    const data = {
+        infoFisiologica,
+        preferencias,
+        restricoes,
+        objetivo,
+        quantidadeRefeicoes,
+        quantidadeOpcoes
+    };
+
+    // Enviar para o Flask
+    const response = await fetch('/geradorDeCardapio', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    // Receber a dieta gerada
+    const result = await response.json();
+    alert(result.dieta); // Exibir a dieta gerada
+});
+
+
