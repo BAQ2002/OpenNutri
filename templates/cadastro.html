@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <!-- Estilos externos -->
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Título principal -->
+        <header>
+            <h1>Cadastro de Usuário</h1>
+        </header>
+
+        <!-- Formulário de Cadastro -->
+        <main>
+            <form id="formCadastro">
+                <div class="row-direction">
+                    <!-- Campo de Idade -->
+                    <label for="idade">Idade:
+                        <input type="number" id="idade" name="idade" min="0" max="120" required>
+                    </label>
+
+                    <!-- Campo de Peso -->
+                    <label for="peso">Peso (kg):
+                        <input type="number" id="peso" name="peso" step="0.1" required>
+                    </label>
+                </div>
+                <div class="row-direction">
+                    <!-- Campo de Altura -->
+                    <label for="altura">Altura (cm):
+                        <input type="number" id="altura" name="altura" step="1" required>
+                    </label>
+                    <!-- Campo de Gênero -->
+                    <label for="genero">Gênero:
+                        <select id="genero" name="genero" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    
+                    </label>
+                </div>
+                <!-- Atividade Física -->
+                <fieldset class="form-group">
+                    <legend>Você pratica atividade física?</legend>
+                    <div class="row-direction">
+                        <input type="radio" id="atividadeSim" name="atividade" value="sim"> Sim
+                    </div>
+                    <div class="row-direction">
+                        <input type="radio" id="atividadeNao" name="atividade" value="nao"> Não
+                    </div>                     
+                </fieldset>
+
+                <!-- Campo de Tipos de Atividade -->
+                <fieldset class="checkbox-label" id="atividadesCampo" style="display: flex;">
+                    <legend>Quais atividades você pratica?</legend>
+                    <div class="row-direction">
+                        <label for="Musculacao">Musculação</label>
+                        <input type="checkbox" name="atividadeF" value="Musculacao">
+                        <input class="small" type="number" id="FrequenciaMusculacao" name="frequencia" min="0" max="7">                 
+                    </div>
+                    <div class="row-direction">
+                        <label for="Musculacao">Futebol</label>
+                        <input type="checkbox" name="atividadeF" value="Futebol">
+                        <input class="small" type="number" id="FrequenciaFutebol" name="frequencia" min="0" max="7"> 
+                    </div>
+                    <div class="row-direction">
+                        <label for="Musculacao">Basquete</label>
+                        <input type="checkbox" name="atividadeF" value="Basquete"> 
+                        <input class="small" type="number" id="FrequenciaBasquete" name="frequencia" min="0" max="7">    
+                    </div>
+                    <div class="row-direction">
+                        <label for="Musculacao">Crossfit</label>
+                        <input type="checkbox" name="atividadeF" value="Crossfit">
+                        <input class="small" type="number" id="FrequenciaCrossfit" name="frequencia" min="0" max="7"> 
+                    </div>
+                    <div class="row-direction">
+                        <label for="Musculacao">Tênis</label>
+                        <input type="checkbox" name="atividadeF" value="Tenis">
+                        <input class="small" type="number" id="FrequenciaTenis" name="frequencia" min="0" max="7"> 
+                    </div>
+                </fieldset>
+
+                <!-- Botão de Enviar -->
+                    <button type="submit">Ir para Gerador de Cardápio</button>
+            </form>
+        </main>
+
+        <!-- Resultado -->
+        <footer>
+            <p id="resultado"></p>
+        </footer>
+    </div>
+
+    <!-- Scripts externos -->
+    <script src="../static/scriptCadastro.js"></script>
+</body>
+
+</html>
