@@ -8,8 +8,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-client = OpenAI()
-client.api_key = os.getenv("OPENAI_API_KEY")
+OpenAI.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route('/')
 def index():
@@ -29,7 +28,7 @@ def gerador():
         """
 
         # Chamar a API da OpenAI
-        response = client.chat.completions.create(
+        response = OpenAI.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "Você é um nutricionista especializado em dietas personalizadas."},
@@ -44,8 +43,7 @@ def gerador():
 
         # Retornar a dieta para o frontend
         return render_template('gerador.html')
-    else:
-        return render_template('gerador.html')
+   
 
 if __name__ == '__main__':
     app.run(debug=True)
