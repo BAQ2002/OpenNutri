@@ -43,7 +43,7 @@ def gerador():
         ##dieta = response['choices'][0]['message']['content']
 
         # Retornar a dieta para o frontend
-        return jsonify({'dieta': dieta})
+        return render_template('gerador.html')
     else:
         return render_template('gerador.html')
 
