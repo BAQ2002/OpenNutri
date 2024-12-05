@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refeições Dinâmicas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .meal {
+            margin-bottom: 20px;
+        }
+        .meal h4 {
+            margin-bottom: 10px;
+        }
+        .meal ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .meal ul li {
+            margin-bottom: 5px;
+        }
+        .nutritional-info {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-left: 5px solid #007BFF;
+            border-radius: 4px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <pre id="resposta" class="hidden">{{ dieta }}</pre>
+    <div class="container" id="meals-container"></div>
+
+    <script src="../static/scriptDieta.js"></script>
+</body>
+</html>

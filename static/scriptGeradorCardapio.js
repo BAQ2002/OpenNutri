@@ -80,11 +80,11 @@ for (let i = 0; i < 10; i++) {
     }
 }
 
-document.getElementById('formPreferenciaAlimentos').addEventListener('submit', async (e) => {
-    e.preventDefault();
+document.getElementById('formPreferenciaAlimentos').addEventListener('submit', async (event) => {
+    event.preventDefault();
 
-    // Obter informações do localStorage
-    const infoFisiologica = localStorage.getItem('infoFisiologica');
+    // Obter informações do Storage
+    const infoFisiologica = sessionStorage.getItem('infoFisiologica');
     
     // Coletar dados da página atual
     const preferencias = Array.from(document.querySelectorAll('input[name="alimento"]'))
@@ -100,15 +100,15 @@ document.getElementById('formPreferenciaAlimentos').addEventListener('submit', a
 
     // Construir os dados para o backend
     let coleta = `
-            <strong>Informações fisiologicas:</strong> ${infoFisiologica}<br>
-            <strong>Restrições alimentares:</strong> ${restricoes}<br>
-            <strong>Objetivo da Dieta:</strong> ${objetivo}<br>
-            <strong>Quantidade de Refeições por dia:</strong> ${quantidadeRefeicoes}<br>
-            <strong>Quantidade de opções por refeição:</strong> ${quantidadeOpcoes}<br>
-            <strong>Os alimentos que devem ser utilizados:</strong> ${preferencias}<br>
+            Informações fisiologicas: ${infoFisiologica}
+            Restrições alimentares: ${restricoes}
+            Objetivo da Dieta: ${objetivo}
+            Quantidade de Refeições por dia: ${quantidadeRefeicoes}
+            Quantidade de opções por refeição: ${quantidadeOpcoes}
+            Os alimentos que devem ser utilizados: ${preferencias}
         `;
 
-    const resultado = {
+    const dadosColetados = {
         coleta_: coleta
     }
 
@@ -119,12 +119,15 @@ document.getElementById('formPreferenciaAlimentos').addEventListener('submit', a
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(resultado)
+        body: JSON.stringify(dadosColetados)
     });
 
-    // Receber a dieta gerada
     const result = await response.json();
-    alert(result.dieta); // Exibir a dieta gerada
+    if (result.redirect) {
+        window.location.href = result.redirect;
+    }
+
+
 });
 
 

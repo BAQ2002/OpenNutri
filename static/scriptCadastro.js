@@ -47,15 +47,15 @@ document.getElementById("formCadastro").addEventListener("submit", function (eve
     if (idade && peso && altura && genero && atividade) {
         // Monta o resultado
         let resultado = `
-            <strong>Idade:</strong> ${idade} anos<br>
-            <strong>Peso:</strong> ${peso} kg<br>
-            <strong>Altura:</strong> ${altura} cm<br>
-            <strong>Gênero:</strong> ${genero}<br>
-            <strong>Pratica atividade física:</strong> ${atividade === "sim" ? "Sim" : "Não"}<br>
+            Idade: ${idade} anos
+            Peso: ${peso} kg
+            Altura: ${altura} cm
+            Gênero: ${genero}
+            Pratica atividade física: ${atividade === "sim" ? "Sim" : "Não"}
         `;
 
         if (atividade === "sim" && atividadesSelecionadas.length > 0) {
-            resultado += `<strong>Atividades:</strong> ${atividadesSelecionadas.join(", ")}<br>`;
+            resultado += `Atividades: ${atividadesSelecionadas.join(", ")}`;
         }
 
         // Manda o resultado para a proxima pagina
