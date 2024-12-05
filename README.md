@@ -5,16 +5,18 @@ O **OpenNutri** é um aplicativo ou serviço online que utiliza a API do OpenAI 
 
 ## Funcionalidades
 - **Cadastro do Usuário**: Permite que o usuário insira dados como idade, peso, altura, gênero, nível de atividade física e preferências alimentares (restrições, alergias, etc.).
-- **Planejamento de Cardápio Personalizado**: Geração de cardápios diários, semanais ou mensais, considerando as necessidades nutricionais e objetivos do usuário.
-- **Integração com IA**: Sugestões de receitas personalizadas com base nos alimentos disponíveis e preferências do usuário, além de listas de compras.
-- **Acompanhamento e Feedback**: Registro de refeições e acompanhamento do progresso em relação aos objetivos de saúde, com sugestões para melhorar os hábitos alimentares.
+- **Planejamento de Cardápio Personalizado**: Geração de cardápios diários, considerando as necessidades nutricionais e objetivos do usuário.
 
 ## Tecnologias Utilizadas
 - **OpenAI API**: Para processar as preferências e restrições alimentares do usuário, e gerar sugestões de cardápios e receitas.
-- **Base de Dados Nutricionais**: Integração com APIs como USDA Food Data Central ou TACO para fornecer informações nutricionais precisas.
-- **Algoritmos de Nutrição**: Uso de fórmulas de cálculo de calorias e macronutrientes para ajustar os cardápios de acordo com os objetivos do usuário.
-- **Frontend**: Interface amigável com gráficos de progresso, listas de compras e funcionalidades de gamificação.
-- **Backend**: Armazenamento seguro de dados pessoais e integração com notificações push para lembrar o usuário de refeições ou hidratação.
+- **Flask**: Utilizado para a integração com Web.
+
+## Melhorias que serão implementadas
+- **Dietas Melhor Fundamentadas**: Utilizar de maneira mais profunda o uso de fine-tunning no modelo geracional, mais opções de informações fornecidas para à geração da dieta.
+- **Implementação de Geração de Treinos**: Utilizando os mesmos fundamentos da geração de dieta, será possível gerar um treino de musculação para o objetivo do usuário.
+- **Implementação de Sistema de Contas**: Implementação da possibilidade de criação de contas, dando sequência para um sistema de assinaturas com mais ferramentas para o usuário.
+- **Melhorias na Interface de Usuário**: Incrementar de maneira significativa a UI, que atualmente está extremamente rudimentar.
+- **Acompanhamento e Feedback**: Registro de refeições e acompanhamento do progresso em relação aos objetivos de saúde, com sugestões para melhorar os hábitos alimentares.
 
 
 
